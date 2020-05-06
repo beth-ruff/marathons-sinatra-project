@@ -31,7 +31,7 @@ class MarathonsController < ApplicationController
     end 
 
     patch '/marathons/:id' do 
-
+        binding.pry
     end 
 
     get '/marathons/:id/delete' do

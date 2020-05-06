@@ -1,0 +1,24 @@
+<h1>Edit a Marathon</h1>
+
+<br>
+
+<form action="/marathons/<%= @marathon.id %>" method="POST">
+   <input id="hidden" type="hidden" name="_method" value="PATCH">
+    
+    <label> Race Name: </label>
+    <input type="text" name="name" placeholder="Boston Marathon">
+
+    <br></br>
+
+    <label> Date: </label>
+    <input type="date" name="date">
+
+    <br></br>
+
+    <label> Location: </label>
+    <input type="text" name="location">
+
+    <br></br>
+
+    <input type="submit" value="Submit">
+</form>
