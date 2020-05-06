@@ -1,5 +1,8 @@
 class Marathon < ActiveRecord::Base
 
-    # TO-DO: validate worthy data
+    # validate worthy data
+    validates :name, presence: true
+    validates :date, presence: true 
+    validates :location, presence: true 
 
 end 

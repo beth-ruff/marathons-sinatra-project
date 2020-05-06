@@ -11,6 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200505204058) do
+ActiveRecord::Schema.define(version: 20200505220626) do
+
+  create_table "marathons", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "date"
+    t.string   "location"
+  end
 
 end

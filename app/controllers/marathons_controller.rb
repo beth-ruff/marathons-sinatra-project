@@ -11,16 +11,23 @@ class MarathonsController < ApplicationController
     end 
 
     post '/marathons' do 
-
+        @marathon = Marathon.new(params)
+        if @marathon.save
+            redirect "/marathons/#{@marathon.id}"
+        else 
+            erb :'marathons/new'
+        end 
     end
 
     get '/marathons/:id' do 
         # params to find use params[:id]
-        erb :"marathons/show"
+        @marathon = Marathon.find(params[:id])
+        erb :'marathons/show'
     end 
 
     get '/marathons/:id/edit' do 
-
+        @marathon = Marathon.find(params[:id])
+        erb :'marathons/edit'
     end 
 
     patch '/marathons/:id' do 
