@@ -22,27 +22,29 @@ class MarathonsController < ApplicationController
 
     get '/marathons/:id' do 
         # params to find use params[:id]
-        @marathon = Marathon.find(params[:id])
+        find_marathon(params[:id])
         erb :'marathons/show'
     end 
 
     get '/marathons/:id/edit' do 
-        @marathon = Marathon.find(params[:id])
+        find_marathon(params[:id])
         erb :'marathons/edit'
     end 
 
     patch "/marathons/:id" do 
-        @marathon = Marathon.find(params[:id])
+        find_marathon(params[:id])
         @marathon_params = update_whitelist(params)
         @marathon.update(@marathon_params)
         redirect "/marathons/#{@marathon.id}"
     end 
 
-    get '/marathons/:id/delete' do
+    # get '/marathons/:id/delete' do
 
-    end 
+    # end 
 
-    delete '/marathons/:id/delete' do
+    delete '/marathons/:id' do
+        find_marathon(params[:id])
+        @marathon.destroy
     end 
 
     private
@@ -54,4 +56,9 @@ class MarathonsController < ApplicationController
                 location: params[:location]
             }
         end 
+
+        def find_marathon(id)
+            @marathon = Marathon.find(id)
+        end 
+
 end 

@@ -3,3 +3,12 @@
 <p>Single marathon goes here:</p>
 
 <%= @marathon.name %>
+
+<br></br>
+
+<a href="/marathons/<%= @marathon.id %>/delete">Delete Marathon</a>
+
+<form action="/marathons/<%=@marathon.id%>" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete">
+    </form>
