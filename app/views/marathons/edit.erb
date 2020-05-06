@@ -2,8 +2,8 @@
 
 <br>
 
-<form action="/marathons/<%= @marathon.id %>" method="POST">
-   <input id="hidden" type="hidden" name="_method" value="PATCH">
+<form action="/marathons/<%=@marathon.id%>" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="PATCH">
     
     <label> Race Name: </label>
     <input type="text" name="name" placeholder="Boston Marathon">
