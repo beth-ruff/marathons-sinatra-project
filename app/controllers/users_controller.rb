@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     end 
 
     get '/logout' do 
-        if session.destroy
+        if session.clear
             redirect '/'
         else 
             redirect '/marathons'
