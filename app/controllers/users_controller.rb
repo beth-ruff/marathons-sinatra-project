@@ -1,19 +1,31 @@
 class UsersController < ApplicationController
 
     get '/users/:id' do 
-
+        @user = User.find(params[:id])
+        erb :'users/new'
     end 
 
-    get '/users/sign_up' do 
-    
+    get '/signup' do 
+        erb :'users/signup'
     end 
 
-    post '/users/sign_up' do 
+    post '/users/signup' do 
+        @user = User.new(params)
 
+        if @user.save
+            session[:user_id] = @user.id
+            redirect '/marathons'
+        else 
+            erb :'users/new'
+        end 
     end 
 
     get '/logout' do 
-
+        if session.destroy
+            redirect '/'
+        else 
+            redirect '/marathons'
+        end 
     end 
 
     delete '/users/deactivate' do 

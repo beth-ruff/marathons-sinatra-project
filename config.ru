@@ -6,4 +6,5 @@ end
 
 use Rack::MethodOverride
 use MarathonsController
+use UsersController
 run ApplicationController
