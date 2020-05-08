@@ -1,7 +1,10 @@
 class SessionsController < ApplicationController
 # rather than making sessions views folder, we can tell sessions controller to load things from users controller
+    
     get '/login' do 
-        erb :'users/login'
+        if logged_in?
+            erb :'users/login'
+        end 
     end 
 
     post '/login' do 
@@ -12,6 +15,5 @@ class SessionsController < ApplicationController
             erb :'users/login'
         end 
     end 
-
 
 end

@@ -1,12 +1,18 @@
 class UsersController < ApplicationController
 
     get '/users/:id' do 
-        @user = User.find(params[:id])
-        erb :'users/new'
+        if logged_in?
+            @user = User.find(params[:id])
+            erb :'users/new'
+        end 
     end 
 
     get '/signup' do 
-        erb :'users/signup'
+        if logged_in?
+            redirect '/marathons'
+        else 
+            erb :'users/signup'
+        end 
     end 
 
     post '/users/signup' do 
@@ -21,10 +27,13 @@ class UsersController < ApplicationController
     end 
 
     get '/logout' do 
-        if session.clear
-            redirect '/'
-        else 
-            redirect '/marathons'
+        if logged_in?
+            if session.clear
+                redirect '/'
+            else 
+                redirect '/marathons'
+            end 
+        else redirect '/marathons'
         end 
     end 
 

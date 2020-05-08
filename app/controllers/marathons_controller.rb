@@ -4,6 +4,7 @@ class MarathonsController < ApplicationController
 
     
     get '/marathons' do 
+        @marathons = Marathon.all
         erb :'marathons/index'
     end 
 
@@ -13,6 +14,9 @@ class MarathonsController < ApplicationController
 
     post '/marathons' do 
         @marathon = Marathon.new(params)
+        @user = current_user
+        @marathon.user = current_user 
+
         if @marathon.save
             redirect "/marathons/#{@marathon.id}"
         else 
