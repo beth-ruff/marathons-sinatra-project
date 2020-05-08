@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200507013253) do
+ActiveRecord::Schema.define(version: 20200508155720) do
 
   create_table "marathons", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "date"
-    t.string   "location"
+    t.string "name"
+    t.date   "date"
+    t.string "location"
   end
 
   create_table "users", force: :cascade do |t|

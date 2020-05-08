@@ -1,3 +1,11 @@
 <h1>marathons index</h1>
 
-<p>index of marathons</p>
+<% @marathons.each do |marathon| %>
+    <%= marathon.name %><br />
+    <%= marathon.date %>
+    <%= marathon.location %>
+    <% end %>
+    
+    <br></br>
+
+<a href='/marathons/new'>Add a marathon</a>
