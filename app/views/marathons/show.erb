@@ -1,14 +1,26 @@
-<h1>Show Marathons</h1>
+<h2><%= @marathon.name %></h2>
 
-<p>Single marathon goes here:</p>
+<br>
 
-<%= @marathon.name %>
+<p>Submitted by: <%=@marathon.user.name %></h1></p>
 
-<br></br>
+<br>
 
-<a href="/marathons/<%= @marathon.id %>/delete">Delete Marathon</a>
+<% if @marathon.user == current_user %>
+    
+    <a href="/marathons">
+    <input type="submit" value="Back to Marathon Index"</a> 
 
-<form action="/marathons/<%=@marathon.id%>" method="POST">
-    <input id="hidden" type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="Delete">
-    </form>
+    <br>
+
+    <a href="/marathons/<%=@marathon.id %>/edit">
+    <input type="submit" value="Edit"</a> 
+
+    <br>
+
+    <form action="/marathons/<%= @marathon.id %>" method="POST"> 
+    <input id="hidden" type="hidden" name="_method" value="delete"> 
+    <input type="submit" value="Delete"> </form>   
+
+
+<% end %> 

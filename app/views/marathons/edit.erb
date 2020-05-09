@@ -6,7 +6,7 @@
     <input id="hidden" type="hidden" name="_method" value="PATCH">
     
     <label> Race Name: </label>
-    <input type="text" name="name" placeholder="Boston Marathon">
+    <input type="text" name="name" value="<%= @marathon.name %>">
 
     <br></br>
 
@@ -20,5 +20,5 @@
 
     <br></br>
 
-    <input type="submit" value="Submit">
+    <input type="submit" value="Save Marathon Edits">
 </form>

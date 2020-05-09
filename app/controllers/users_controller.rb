@@ -27,18 +27,8 @@ class UsersController < ApplicationController
     end 
 
     get '/logout' do 
-        if logged_in?
-            if session.clear
-                redirect '/'
-            else 
-                redirect '/marathons'
-            end 
-        else redirect '/marathons'
-        end 
-    end 
-
-    delete '/users/deactivate' do 
-    
+        session.clear
+        redirect '/'
     end 
 
 end

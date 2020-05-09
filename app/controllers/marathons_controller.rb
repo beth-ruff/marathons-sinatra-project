@@ -49,6 +49,7 @@ class MarathonsController < ApplicationController
     delete '/marathons/:id' do
         find_marathon(params[:id])
         @marathon.destroy
+        erb :'marathons/deleted'
     end 
 
     private

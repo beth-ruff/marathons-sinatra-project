@@ -1,11 +1,16 @@
-<h1>marathons index</h1>
-
 <% @marathons.each do |marathon| %>
-    <%= marathon.name %><br />
-    <%= marathon.date %>
-    <%= marathon.location %>
+    <h2><%= marathon.name %></h2>
+    <br>
+    <p>Date: <%= marathon.date %></p>
+    <p>Location: <%= marathon.location %></p>
     <% end %>
     
     <br></br>
 
-<a href='/marathons/new'>Add a marathon</a>
+<a href='/marathons/new'>
+<input type="submit" value="Add a marathon"</a> 
+
+<br>
+
+<a href="/logout">
+<input type="submit" value="Logout"</a>
