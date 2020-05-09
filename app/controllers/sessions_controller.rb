@@ -2,10 +2,10 @@ class SessionsController < ApplicationController
 # rather than making sessions views folder, we can tell sessions controller to load things from users controller
     
     get '/login' do 
-        if !logged_in?
-            erb :'users/login'
-        else 
+        if logged_in?
             redirect '/marathons'
+        else 
+            erb :'users/login'
         end 
     end 
 
@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
         if @user && @user.authenticate(params[:password])
             redirect '/marathons'
         else 
-            erb :'users/login'
+            redirect '/login'
         end 
     end 
 
