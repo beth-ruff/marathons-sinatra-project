@@ -1,6 +1,6 @@
-# Marathon Sinatra Project
+# Marathons Sinatra Project
 
-Welcome to the Marathon Sinatra App. Once logged in, you can view a marathon index and add, edit, or delete your own marathons.
+Welcome to the Marathons Sinatra App. Once logged in, you can view a marathon index and add, edit, or delete your own marathons.
 
 ## Installation
 
@@ -16,7 +16,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install marathon-sinatra-project
+    $ gem install marathons-sinatra-project
 
 ## Usage
 
