@@ -13,6 +13,7 @@ class MarathonsController < ApplicationController
     end 
 
     post '/marathons' do 
+       
         @marathon = Marathon.new(params)
         @user = current_user
         @marathon.user = current_user 
@@ -37,9 +38,13 @@ class MarathonsController < ApplicationController
 
     patch "/marathons/:id" do 
         find_marathon(params[:id])
-        @marathon_params = update_whitelist(params)
-        @marathon.update(@marathon_params)
-        redirect "/marathons/#{@marathon.id}"
+        if @marathon.user = current_user 
+            @marathon_params = update_whitelist(params)
+            @marathon.update(@marathon_params)
+            redirect "/marathons/#{@marathon.id}"
+        else 
+            redirect '/marathons'
+        end 
     end 
 
     # get '/marathons/:id/delete' do
@@ -48,8 +53,12 @@ class MarathonsController < ApplicationController
 
     delete '/marathons/:id' do
         find_marathon(params[:id])
-        @marathon.destroy
-        erb :'marathons/deleted'
+        if @marathon.user = current_user
+            @marathon.destroy
+            erb :'marathons/deleted'
+        else 
+            redirect '/marathons'
+        end 
     end 
 
     private

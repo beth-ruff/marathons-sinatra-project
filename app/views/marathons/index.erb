@@ -1,8 +1,9 @@
 <% @marathons.each do |marathon| %>
-    <h2><%= marathon.name %></h2>
-    <br>
-    <p>Date: <%= marathon.date %></p>
-    <p>Location: <%= marathon.location %></p>
+    <a href='/marathons/:id'>
+    <%= marathon.name %></a>
+    
+    <br></br>
+    
     <% end %>
     
     <br></br>

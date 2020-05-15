@@ -11,13 +11,12 @@ class UsersController < ApplicationController
         if logged_in?
             redirect '/marathons'
         else 
-            erb :'users/signup'
+            erb :'users/new'
         end 
     end 
 
     post '/users/signup' do 
         @user = User.new(params)
-
         if @user.save
             session[:user_id] = @user.id
             redirect '/marathons'
