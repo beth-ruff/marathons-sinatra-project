@@ -1,5 +1,5 @@
--navigate to a show page
-    -index having clickable marathon titles
-    -show page has more detailed info
+-navigate to a show page DONE
+    -index having clickable marathon titles DONE
+    -show page has more detailed info DONE
 -application crashing if navigating to a show page for a record that doesn't exist
--logout button on every page
+-logout button on every page DONE

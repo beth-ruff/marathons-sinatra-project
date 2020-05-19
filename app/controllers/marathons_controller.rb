@@ -27,17 +27,21 @@ class MarathonsController < ApplicationController
 
     get '/marathons/:id' do 
         # params to find use params[:id]
-        find_marathon(params[:id])
+        find_marathon
+        if @marathon.user == nil
+            flash[:nil_id] = "The marathon you are trying to look for no longer exists."
+            redirect '/marathons'
+        end 
         erb :'marathons/show'
     end 
 
     get '/marathons/:id/edit' do 
-        find_marathon(params[:id])
+        find_marathon
         erb :'marathons/edit'
     end 
 
     patch "/marathons/:id" do 
-        find_marathon(params[:id])
+        find_marathon
         if @marathon.user = current_user 
             @marathon_params = update_whitelist(params)
             @marathon.update(@marathon_params)
@@ -52,7 +56,7 @@ class MarathonsController < ApplicationController
     # end 
 
     delete '/marathons/:id' do
-        find_marathon(params[:id])
+        find_marathon
         if @marathon.user = current_user
             @marathon.destroy
             erb :'marathons/deleted'
@@ -71,8 +75,8 @@ class MarathonsController < ApplicationController
             }
         end 
 
-        def find_marathon(id)
-            @marathon = Marathon.find(id)
+        def find_marathon
+            @marathon = Marathon.find_by_id(params[:id])
         end 
 
 end 

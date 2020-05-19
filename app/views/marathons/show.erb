@@ -1,18 +1,22 @@
+<% if flash.has?(:nil_id) %>
+<%= flash[:nil_id] %>
+<% end %>
+
 <h2><%= @marathon.name %></h2>
 
 <br>
 
-<p>Submitted by: <%=@marathon.user.name %></h1></p>
+<p><b>Date:</b> <%= @marathon.date %></p>
+<p><b>Location:</b> <%= @marathon.location %></p>
+
+<br>
+
+<p><small>Submitted by: <%=@marathon.user.name %></h1></small></p>
 
 <br>
 
 <% if @marathon.user == current_user %>
     
-    <a href="/marathons">
-    <input type="submit" value="Back to Marathon Index"</a> 
-
-    <br>
-
     <a href="/marathons/<%=@marathon.id %>/edit">
     <input type="submit" value="Edit"</a> 
 
@@ -24,3 +28,11 @@
 
 
 <% end %> 
+
+<a href="/marathons">
+<input type="submit" value="Back to Marathon Index"</a> 
+
+<br>
+
+<a href="/logout">
+<input type="submit" value="Logout"</a>
