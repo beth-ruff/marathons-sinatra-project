@@ -29,7 +29,7 @@ class MarathonsController < ApplicationController
         # params to find use params[:id]
         find_marathon
         if @marathon.user == nil
-            flash[:nil_id] = "The marathon you are trying to look for no longer exists."
+            flash[:nil_id] = "The marathon details you are looking for no longer exist."
             redirect '/marathons'
         end 
         erb :'marathons/show'

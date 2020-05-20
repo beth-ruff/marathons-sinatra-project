@@ -20,8 +20,9 @@ class UsersController < ApplicationController
         if @user.save
             session[:user_id] = @user.id
             redirect '/marathons'
-        else 
-            erb :'users/new'
+        else
+            flash[:existing_user] = "This user already exists."
+            redirect to '/signup'
         end 
     end 
 
