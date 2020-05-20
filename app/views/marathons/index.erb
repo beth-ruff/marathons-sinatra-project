@@ -1,3 +1,12 @@
+<form action="/marathons/name" method="post" >
+<label>
+Search for a marathon:
+</label>
+<input type="text" name="name">
+<input type="submit" value="Search">
+</form>
+
+
 <% @marathons.each do |marathon| %>
    <a href="/marathons/<%=marathon.id%>"><%= marathon.name %></a>
     
@@ -6,6 +15,8 @@
     <% end %>
     
     <br></br>
+
+
 
 <a href='/marathons/new'>
 <input type="submit" value="Add a marathon"</a> 

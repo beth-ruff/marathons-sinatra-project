@@ -51,6 +51,10 @@ class MarathonsController < ApplicationController
         end 
     end 
 
+    post "/marathons/name" do
+        @marathons = Marathon.where("name LIKE ?", "%#{params[:name]}%")
+        erb :'marathons/index' 
+    end 
     # get '/marathons/:id/delete' do
 
     # end 
